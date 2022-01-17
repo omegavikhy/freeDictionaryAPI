@@ -50,11 +50,11 @@ function handleError (error = {}) {
 
     const { requestType, title, message, resolution } = error;
         status = REQUEST_TYPE_STATUS_CODE[requestType],
-        body = JSON.stringify({
+        body = JSON.stringify([{
             title,
             message,
             resolution
-        });
+        }]);
 
     this.set(HEADER_CONTENT_TYPE, 'application/json');
     this.set(HEADER_ACCESS_CONTROL_ALLOW_ORIGIN, '*');
